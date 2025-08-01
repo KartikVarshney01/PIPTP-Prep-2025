@@ -1,0 +1,56 @@
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+// 		int n = sc.nextInt();
+        System.out.println(fun(3));
+        System.out.println(fun(4));
+        System.out.println(fun(5));
+        System.out.println(fun(6));
+        System.out.println(fun1(12));
+        System.out.println(fun2(5,3));
+        System.out.println(fun3(2,7));
+        fun4(5);
+    }
+    // Recursive Function
+// 	public static int fun(int n){
+// 	    if(n<=1) return 1;
+// 	    else return n*fun(n-1);
+// 	}
+
+    // Exercise 1
+    public static int fun(int n){
+        if(n<=1) return 1;
+        else if(n>1 && n%2==0) return n + fun(n/2);
+        else return fun((n+1)/2) + fun((n-1)/2);
+    }
+
+    // Exercise 2
+    public static int sum = 0;
+    public static int fun1(int n){
+        if(n==0) return sum;
+        int digit = n%10;
+        sum += digit;
+        return fun1(n/10);
+    }
+
+    // Exercise 3
+    public static int fun2(int x,int y){
+        if(y==0 || y==x) return 1;
+        return fun2(x-1,y)+fun2(x-1,y-1);
+    }
+
+    // Exercise 4
+    public static int fun3(int x,int y){
+        if(x==y) return x*y;
+        return fun3(x,(x+y)/2) + fun3((x+y)/2+1,y);
+    }
+
+    // Exercise 5
+    public static void fun4(int n){
+        if(n==1) System.out.print(1+"");
+        else{
+            fun4(n-1);
+            System.out.print(n);
+            fun4(n-1);
+        }
+
+    }
